@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whistle Map MVP</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div id="alerts"></div>
+
+    <!-- Search Section -->
+    <div class="section">
+      <h3>Search Places</h3>
+      <div class="form-group">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search for a location...">
+          <div id="searchResults" class="search-results"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Whistle Section -->
+    <div class="section">
+      <h3>Add Whistle</h3>
+      <div id="locationStatus" class="location-status">
+        Click on the map to select a location
+      </div>
+
+      <form id="whistleForm">
+        <div class="form-group">
+          <label for="title">Title *</label>
+          <input type="text" id="title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <select id="category" required>
+            <option value="">Select category</option>
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+            <option value="help">Help</option>
+            <option value="party">Party</option>
+            <option value="misc">Misc</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price (optional)</label>
+          <input type="text" id="price" placeholder="e.g., ₹500 or Free">
+        </div>
+
+        <div class="form-group">
+          <label for="expiresIn">Expires In</label>
+          <select id="expiresIn">
+            <option value="0">Never</option>
+            <option value="3600">1 Hour</option>
+            <option value="86400">1 Day</option>
+            <option value="604800">1 Week</option>
+            <option value="2592000">1 Month</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description (optional)</label>
+          <textarea id="description" placeholder="Additional details..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="imageUpload">Image upload (optional)</label>
+          <input type="file" id="imageUpload" name="imageUpload" accept="image/*" />
+        </div>
+
+
+        <div class="form-group">
+          <label for="contact">Contact (optional)</label>
+          <input type="text" id="contact" placeholder="Phone, email, or other contact info">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Add Whistle</button>
+      </form>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="section">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <div class="filter-item"><input type="checkbox" id="filter-buy" checked><span class="category-label category-buy">Buy</span></div>
+        <div class="filter-item"><input type="checkbox" id="filter-sell" checked><span class="category-label category-sell">Sell</span></div>
+        <div class="filter-item"><input type="checkbox" id="filter-help" checked><span class="category-label category-help">Help</span></div>
+        <div class="filter-item"><input type="checkbox" id="filter-party" checked><span class="category-label category-party">Party</span></div>
+        <div class="filter-item"><input type="checkbox" id="filter-misc" checked><span class="category-label category-misc">Misc</span></div>
+      </div>
+    </div>
+
+    <!-- Data Management Section -->
+    <div class="section">
+      <h3>Data Management</h3>
+      <button id="exportBtn" class="btn btn-secondary" style="width: 100%; margin-bottom: 10px;">Export Whistles</button>
+
+      <div class="file-input-wrapper">
+        <button class="btn btn-secondary" style="width: 100%; margin-bottom: 10px;">Import Whistles</button>
+        <input type="file" id="importFile" accept=".json">
+      </div>
+
+      <button id="clearAllBtn" class="btn btn-danger" style="width: 100%;">Clear All Whistles</button>
+      <div class="whistle-count" id="whistleCount">0 whistles</div>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+
+
+
+
+  <!-- Leaflet JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

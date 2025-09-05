@@ -1,0 +1,327 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    display: flex;
+    overflow: hidden; /* Prevent body scroll on desktop */
+}
+
+.sidebar {
+    width: 350px;
+    background-color: #2d2d2d;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #444;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-container {
+    flex: 1;
+    position: relative;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section h3 {
+    margin-bottom: 15px;
+    color: #4fc3f7;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #cccccc;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4fc3f7;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #4fc3f7;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #29b6f6;
+}
+
+.btn-secondary {
+    background-color: #666;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #777;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #d32f2f;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #3a3a3a;
+    border: 1px solid #555;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #555;
+}
+
+.search-result-item:hover {
+    background-color: #4a4a4a;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-item input[type="checkbox"] {
+    width: auto;
+}
+
+.category-label {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.category-buy {
+    background-color: #4caf50;
+    color: white;
+}
+
+.category-sell {
+    background-color: #ff9800;
+    color: white;
+}
+
+.category-help {
+    background-color: #2196f3;
+    color: white;
+}
+
+.category-party {
+    background-color: #e91e63;
+    color: white;
+}
+
+.category-misc {
+    background-color: #9c27b0;
+    color: white;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.alert-success {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.alert-error {
+    background-color: #c62828;
+    color: white;
+}
+
+.location-status {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #555;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.location-selected {
+    background-color: #2e7d32;
+}
+
+.file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.whistle-count {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* Custom Leaflet popup styling - BEGIN */
+.leaflet-popup-content-wrapper {
+    background: #333; /* Darker background for the popup */
+    color: #ffffff;
+    border-radius: 8px; /* Rounded corners */
+    padding: 0; /* Remove default padding */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Subtle shadow */
+}
+
+.leaflet-popup-tip {
+    background: #333; /* Match popup background */
+}
+
+.leaflet-popup-content {
+    margin: 0 !important; /* Remove default margin */
+}
+
+.whistle-popup {
+    padding: 15px; /* Internal padding for content */
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 250px; /* Limit width */
+    min-width: 180px; /* Minimum width */
+}
+
+.whistle-popup h4 {
+    margin: 0 0 8px 0;
+    color: #ffffff; /* White title */
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.whistle-popup p {
+    margin-bottom: 6px;
+    color: #e0e0e0;
+}
+
+.whistle-popup strong {
+    color: #ffffff;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    color: white; /* Text color for the badge */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.popup-footer {
+    font-size: 11px;
+    color: #aaaaaa;
+    margin-top: 10px;
+    border-top: 1px solid #444;
+    padding-top: 8px;
+    line-height: 1.4;
+}
+/* Custom Leaflet popup styling - END */
+
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 40vh;
+        border-right: none;
+        border-bottom: 1px solid #444;
+    }
+
+    .map-container {
+        height: 60vh;
+    }
+}
